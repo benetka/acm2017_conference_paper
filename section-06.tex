@@ -1,0 +1,27 @@
+\section{Results}
+\label{sec:results}
+
+\dummy{Smooth, thick and viscous on the palate, with a full and robust body. For a moment, it's sweet and tropical, then hops rush in and tear it all to shreds! The lip-smacking hop profile roams all over the place, as a sticky pine and a slightly burnt resinous coating forms on the palate. Intensely spicy, with a big grape-fruity zest and a sugary, warming alcohol that smacks you upside the head for noticing it. Malt-wise, caramel and bread flavors clamor to be heard, but the hops entangle them and draw them back into the depths of the brew, where they die. Malt flavors are there, but they add sweetness and body versus anything distinct enough to challenge the hops.}
+
+\begin{algorithm}
+  \caption{Evaluation algorithm (second-level activities)
+    \label{alg:eval_alg}}
+  \begin{algorithmic}[1]
+	\State ${T^{100}} \gets t_1,\dots,t_{100} \in T_{test}$\Comment{ Most frqnt. $2^{nd}$-lev. transit.}
+	\State ${n} \gets 10$\Comment{ Number of inf. needs to consider.}
+	\State ${results} \gets \emptyset$\Comment{ Store NDCG results per trans.}	
+	
+	\ForEach {$\text{transition } t=<t_a,t_b> \in T^{100} $}
+		\State ${judgments} \gets \emptyset$	
+		\State ${needs} \gets top_nneeds(t_a)\cup top_nneeds(t_b)$
+		\ForEach {$ n \in needs $} \Comment{ Crowdsourcing assessments.}
+			\State $judgments_{t} \gets crowd\_rating(n, t)$ 
+		\EndFor
+		\State $ranking_t \gets model(t_a)$ \Comment{ Ranking from our model.}
+		\State $results \gets ndcg(ranking_t, judgments_t)$	
+	\EndFor
+	
+	\State $avg(results)$\Comment{ Calculate average NDCG value.}	
+	
+  \end{algorithmic}
+\end{algorithm}
