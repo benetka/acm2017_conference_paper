@@ -5,7 +5,7 @@ This is a custom-enhanced template for a **sigconf** conference paper according 
 Boilerplate generated with the awesome [breue.com/beer_ipsum](https://breue.com/beer_ipsum).
 
 ### Preview
-![Paper Preview](https://github.com/benetka/acm2017_conference_paper/blob/master/graphics/sigconf_acm.png?raw=true)
+![Paper Preview](https://raw.githubusercontent.com/benetka/acm2017_conference_paper/master/graphics/sigconf_acm.png)
 
 ---
 
